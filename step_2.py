@@ -10,6 +10,13 @@ grid.pop(-1)
 res = 0
 
 def voisins(grid, p):
+    """
+    Fonction qui renvoies le nombre de voisins @ autour d'une coordonée p de
+    type (x, y)
+    
+    :param grid: La grille en 2D des cellules @ et .
+    :param p: Les coordonées de la cellule a analyser autour
+    """
     compteur = 0
     x0, y0 = p
     # On détermine les voisins des 8 cellules adjacentes à p
@@ -24,10 +31,26 @@ def voisins(grid, p):
 
     return compteur
 
-for i in range(len(grid)):
-    for n in range(len(grid[0])):
-        if grid[i][n] == '@':
-            if voisins(grid, (i, n)) < 4:
-                res += 1
+def step_grid(grid):
+    """
+    Fonction qui renvoies l'état de la grille après la suppression
+    de tout les rouleaux possibles en l'état
+    
+    :param grid: La grille en 2D des cellules @ et .
+    """
+    for i in range(len(grid)):
+        for n in range(len(grid[0])):
+            if grid[i][n] == '@':
+                vois = voisins(grid, (i, n))
+                if vois < 4:
+                    grid[i][n] = '.'
+    return grid
+
+grid = [['@', '.', '@',
+        '.', '@', '.', 
+        '.', '.', '@']]
+
+print(step_grid(grid))
+
 
 print("La réponse est: ", res)
