@@ -1,8 +1,6 @@
 with open('input.txt', 'r', encoding='utf-8') as fichier:
     data = fichier.read()
 
-
-
 # On fait une liste de liste pour représenter chaque ligne de la grille
 grid = [[i for i in line] for line in data.split('\n')]
 
@@ -25,7 +23,6 @@ def voisins(grid, p):
                 compteur += 1
 
     return compteur
-
 
 for i in range(len(grid)):
     for n in range(len(grid[0])):
