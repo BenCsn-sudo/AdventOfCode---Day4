@@ -33,7 +33,7 @@ Dans l’exemple du puzzle, le processus permet d’en retirer **43**.
 
 ### 🎉 Résultat obtenu
 
-*9144*
+**9144**
 
 ---
 
